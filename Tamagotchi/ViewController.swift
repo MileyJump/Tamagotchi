@@ -14,17 +14,12 @@ class ViewController: UIViewController {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 100, height: 100)
         layout.scrollDirection = .vertical
-        // 열 간의 간격을 설정
-//        layout.minimumInteritemSpacing = 10
-        
-        // 행 간의 간격을 설정
-//        layout.minimumLineSpacing = 10
-        
+
         // 섹션의 인셋(여백)을 설정합니다.
         layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        cv.backgroundColor = .red
+        cv.backgroundColor = .white
         return cv
     }()
 
@@ -63,25 +58,16 @@ class ViewController: UIViewController {
 
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+        80
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = tamagotchiCollectionView.dequeueReusableCell(withReuseIdentifier: TamagotchiCollectionViewCell.identifier, for: indexPath) as! TamagotchiCollectionViewCell
-        
         return cell
     }
-    
-//    func collectionView(
-//              _ collectionView: UICollectionView,
-//              layout collectionViewLayout: UICollectionViewLayout,
-//              sizeForItemAt indexPath: IndexPath
-//         ) -> CGSize {
-//              return CGSize(width: 300, height: 100)
-//         }
-    
-    
 }
+
+
 
 extension ViewController: UICollectionViewDelegateFlowLayout {
     // 위 아래 간격
@@ -90,25 +76,24 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
         layout collectionViewLayout: UICollectionViewLayout,
         minimumLineSpacingForSectionAt section: Int
         ) -> CGFloat {
-        return 5
+        return 10
     }
 
-    // 옆 간격
+//     옆 간격
     func collectionView(
       _ collectionView: UICollectionView,
       layout collectionViewLayout: UICollectionViewLayout,
       minimumInteritemSpacingForSectionAt section: Int
       ) -> CGFloat {
-          return 3
+          return 10
       }
 
-    // cell 사이즈( 옆 라인을 고려하여 설정 )
-//     func collectionView(
-//      _ collectionView: UICollectionView,
-//      layout collectionViewLayout: UICollectionViewLayout,
-//      sizeForItemAt indexPath: IndexPath
-//      ) -> CGSize {
-//      
-//          return CGSize(width: 300, height: 100)
-//    }
+//     cell 사이즈
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let padding: CGFloat = 10
+        let minimumItemSpacing: CGFloat = 15
+        let availableWidth = collectionView.frame.width - padding - (minimumItemSpacing * 2)
+        let width = availableWidth / 3
+        return CGSize(width: width, height: width)
+        }
 }
