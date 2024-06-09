@@ -19,7 +19,7 @@ class ViewController: UIViewController {
         layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        cv.backgroundColor = .white
+        cv.backgroundColor = .clear
         return cv
     }()
 
@@ -32,7 +32,7 @@ class ViewController: UIViewController {
     }
     
     func configureView() {
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(cgColor: CGColor(red: 245/255, green: 252/255, blue: 252/255, alpha: 1))
     }
     
     

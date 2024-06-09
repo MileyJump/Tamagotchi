@@ -12,16 +12,28 @@ class TamagotchiCollectionViewCell: UICollectionViewCell {
     
     let tamagotchiImageView: UIImageView = {
         let imageView = UIImageView()
-//        imageView.contentMode = .center
-//        imageView.backgroundColor = . blue
         imageView.image = UIImage(named: "1-1")
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
+    let contentsView: UIView = {
+        let view = UIView()
+        view.layer.cornerRadius = 6
+        view.layer.borderColor = UIColor.black.cgColor
+        view.layer.borderWidth = 1
+        view.backgroundColor = .clear
+        return view
+    }()
+    
     let contentsLabel: UILabel = {
         let label = UILabel()
-        label.backgroundColor = .brown
+        label.text = "따끔따끔 다마고치"
+        label.textColor = UIColor(cgColor: CGColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1))
+        label.font = .boldSystemFont(ofSize: 13)
+        label.textAlignment = .center
+        label.backgroundColor = .clear
+        
         return label
     }()
     
@@ -42,22 +54,27 @@ class TamagotchiCollectionViewCell: UICollectionViewCell {
     
     func configureHierarchy() {
         addSubview(tamagotchiImageView)
+        addSubview(contentsView)
         addSubview(contentsLabel)
     }
     
+    
     func configureLayout() {
         contentsLabel.snp.makeConstraints { make in
-            make.horizontalEdges.equalToSuperview()
+            make.center.equalTo(contentsView)
+        }
+        
+        contentsView.snp.makeConstraints { make in
             make.bottom.equalToSuperview()
             make.height.equalToSuperview().multipliedBy(0.3)
-                }
+            make.leading.equalTo(contentsLabel.snp.leading).offset(-6)
+            make.trailing.equalTo(contentsLabel.snp.trailing).offset(6)
+            make.centerX.equalToSuperview()
+        }
         
         tamagotchiImageView.snp.makeConstraints { make in
             make.top.horizontalEdges.equalToSuperview()
-            make.bottom.equalTo(contentsLabel.snp.top).offset(-4)
+            make.bottom.equalTo(contentsView.snp.top).offset(-4)
         }
-        
     }
-    
-    
 }
