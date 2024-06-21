@@ -9,15 +9,19 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let tamagotchiCollectionView: UICollectionView = {
-//        UICollectionView는 레이아웃을 관리하기 위해 별도의 레이아웃 객체가 필요
+    var tamagotchiManager: [TamagotchiModel] = TamagotchiManager().tamagotchiModel
+    
+    private let tamagotchiCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 100, height: 100)
+        let sectionSpacing: CGFloat = 10
+        let cellspacing: CGFloat = 10
+        let width = UIScreen.main.bounds.width - (sectionSpacing * 2 ) - (cellspacing * 2 )
+        layout.itemSize = CGSize(width: width/3, height: width/3)
         layout.scrollDirection = .vertical
-
+        layout.minimumLineSpacing = sectionSpacing
+        layout.minimumLineSpacing = sectionSpacing
         // 섹션의 인셋(여백)을 설정합니다.
-        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        
+        layout.sectionInset = UIEdgeInsets(top: sectionSpacing, left: sectionSpacing, bottom: sectionSpacing, right: sectionSpacing)
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.backgroundColor = .clear
         return cv
@@ -31,23 +35,23 @@ class ViewController: UIViewController {
         configureLayout()
     }
     
-    func configureView() {
-        view.backgroundColor = UIColor(cgColor: CGColor(red: 245/255, green: 252/255, blue: 252/255, alpha: 1))
+    private func configureView() {
+        view.backgroundColor = .customBackgroundColor
     }
     
     
-    func configureCollectionView() {
+    private func configureCollectionView() {
         tamagotchiCollectionView.register(TamagotchiCollectionViewCell.self, forCellWithReuseIdentifier: TamagotchiCollectionViewCell.identifier)
         tamagotchiCollectionView.delegate = self
         tamagotchiCollectionView.dataSource = self
         
     }
     
-    func configureHierarchy() {
+    private func configureHierarchy() {
         view.addSubview(tamagotchiCollectionView)
     }
     
-    func configureLayout() {
+    private func configureLayout() {
         tamagotchiCollectionView.snp.makeConstraints { make in
             make.edges.equalTo(view.safeAreaLayoutGuide)
         }
@@ -58,42 +62,31 @@ class ViewController: UIViewController {
 
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        80
+        return tamagotchiManager.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = tamagotchiCollectionView.dequeueReusableCell(withReuseIdentifier: TamagotchiCollectionViewCell.identifier, for: indexPath) as! TamagotchiCollectionViewCell
+        cell.configrueCell(tamagotchiManager[indexPath.row])
         return cell
     }
-}
-
-
-
-extension ViewController: UICollectionViewDelegateFlowLayout {
-    // 위 아래 간격
-    func collectionView(
-        _ collectionView: UICollectionView,
-        layout collectionViewLayout: UICollectionViewLayout,
-        minimumLineSpacingForSectionAt section: Int
-        ) -> CGFloat {
-        return 10
-    }
-
-//     옆 간격
-    func collectionView(
-      _ collectionView: UICollectionView,
-      layout collectionViewLayout: UICollectionViewLayout,
-      minimumInteritemSpacingForSectionAt section: Int
-      ) -> CGFloat {
-          return 10
-      }
-
-//     cell 사이즈
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let padding: CGFloat = 10
-        let minimumItemSpacing: CGFloat = 15
-        let availableWidth = collectionView.frame.width - padding - (minimumItemSpacing * 2)
-        let width = availableWidth / 3
-        return CGSize(width: width, height: width)
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //        let vc = DetailPopupViewController()
+        //        
+        //        present(vc, animated: true)
+        
+       
+        let detailview = DetailPopupView()
+        view.addSubview(detailview)
+        
+        detailview.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.verticalEdges.equalTo(view.safeAreaLayoutGuide).inset(160)
+            make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(60)
         }
+    }
+    
 }
+
+

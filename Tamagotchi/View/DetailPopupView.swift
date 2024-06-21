@@ -1,14 +1,13 @@
 //
-//  TamagotchiCollectionViewCell.swift
+//  DetailPopupView.swift
 //  Tamagotchi
 //
-//  Created by 최민경 on 6/8/24.
+//  Created by 최민경 on 6/21/24.
 //
 
 import UIKit
-import SnapKit
 
-class TamagotchiCollectionViewCell: UICollectionViewCell {
+class DetailPopupView: UIView {
     
     private let tamagotchiImageView: UIImageView = {
         let imageView = UIImageView()
@@ -35,22 +34,20 @@ class TamagotchiCollectionViewCell: UICollectionViewCell {
         label.backgroundColor = .clear
         return label
     }()
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
-        configureHierarchy()
-        configureLayout()
+        configureView()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configrueCell(_ data: TamagotchiModel) {
-        tamagotchiImageView.image = data.tamagotchiImage
-        tamagotchiNameLabel.text = data.tamagotchiName
-        
+    func configureView() {
+        backgroundColor = .blue
     }
+    
     
     private func configureHierarchy() {
         addSubview(tamagotchiImageView)
@@ -58,23 +55,12 @@ class TamagotchiCollectionViewCell: UICollectionViewCell {
         addSubview(tamagotchiNameLabel)
     }
     
-    
     private func configureLayout() {
-        tamagotchiNameLabel.snp.makeConstraints { make in
-            make.center.equalTo(contentsView)
-        }
-        
-        contentsView.snp.makeConstraints { make in
-            make.bottom.equalToSuperview()
-            make.height.equalToSuperview().multipliedBy(0.3)
-            make.leading.equalTo(tamagotchiNameLabel.snp.leading).offset(-6)
-            make.trailing.equalTo(tamagotchiNameLabel.snp.trailing).offset(6)
-            make.centerX.equalToSuperview()
-        }
-        
         tamagotchiImageView.snp.makeConstraints { make in
-            make.top.horizontalEdges.equalToSuperview()
-            make.bottom.equalTo(contentsView.snp.top).offset(-4)
+            make.top.horizontalEdges.equalToSuperview().inset(30)
+            make.height.equalToSuperview().multipliedBy(0.3)
+            make.width.equalTo(tamagotchiImageView.snp.height)
         }
     }
+    
 }

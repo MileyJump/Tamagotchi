@@ -15,6 +15,10 @@
 		B03A1A8C2C145BE0006CFB9C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B03A1A8B2C145BE0006CFB9C /* SnapKit */; };
 		B03A1A8E2C145C02006CFB9C /* TamagotchiCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03A1A8D2C145C02006CFB9C /* TamagotchiCollectionViewCell.swift */; };
 		B03A1A912C15DFD6006CFB9C /* ReuseIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03A1A902C15DFD6006CFB9C /* ReuseIdentifier.swift */; };
+		B07B0AB82C259CD3005C282F /* TamagotchiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07B0AB72C259CD3005C282F /* TamagotchiModel.swift */; };
+		B07B0ABD2C25A514005C282F /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07B0ABC2C25A514005C282F /* UIColor+Extension.swift */; };
+		B07B0ABF2C25A9C5005C282F /* DetailPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07B0ABE2C25A9C5005C282F /* DetailPopupViewController.swift */; };
+		B07B0AC32C25AA8F005C282F /* DetailPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07B0AC22C25AA8F005C282F /* DetailPopupView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +31,10 @@
 		B03A1A842C14592B006CFB9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B03A1A8D2C145C02006CFB9C /* TamagotchiCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamagotchiCollectionViewCell.swift; sourceTree = "<group>"; };
 		B03A1A902C15DFD6006CFB9C /* ReuseIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifier.swift; sourceTree = "<group>"; };
+		B07B0AB72C259CD3005C282F /* TamagotchiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamagotchiModel.swift; sourceTree = "<group>"; };
+		B07B0ABC2C25A514005C282F /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		B07B0ABE2C25A9C5005C282F /* DetailPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPopupViewController.swift; sourceTree = "<group>"; };
+		B07B0AC22C25AA8F005C282F /* DetailPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPopupView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +70,9 @@
 			children = (
 				B03A1A762C145929006CFB9C /* AppDelegate.swift */,
 				B03A1A782C145929006CFB9C /* SceneDelegate.swift */,
-				B03A1A7A2C145929006CFB9C /* ViewController.swift */,
+				B07B0ABB2C25A147005C282F /* Controller */,
+				B07B0ABA2C25A140005C282F /* View */,
+				B07B0AB92C25A139005C282F /* Model */,
 				B03A1A8D2C145C02006CFB9C /* TamagotchiCollectionViewCell.swift */,
 				B03A1A8F2C15DFB3006CFB9C /* Extension */,
 				B03A1A7F2C14592B006CFB9C /* Assets.xcassets */,
@@ -76,8 +86,34 @@
 			isa = PBXGroup;
 			children = (
 				B03A1A902C15DFD6006CFB9C /* ReuseIdentifier.swift */,
+				B07B0ABC2C25A514005C282F /* UIColor+Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		B07B0AB92C25A139005C282F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B07B0AB72C259CD3005C282F /* TamagotchiModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B07B0ABA2C25A140005C282F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B07B0AC22C25AA8F005C282F /* DetailPopupView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B07B0ABB2C25A147005C282F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B03A1A7A2C145929006CFB9C /* ViewController.swift */,
+				B07B0ABE2C25A9C5005C282F /* DetailPopupViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,9 +192,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B07B0ABF2C25A9C5005C282F /* DetailPopupViewController.swift in Sources */,
+				B07B0ABD2C25A514005C282F /* UIColor+Extension.swift in Sources */,
+				B07B0AB82C259CD3005C282F /* TamagotchiModel.swift in Sources */,
 				B03A1A7B2C145929006CFB9C /* ViewController.swift in Sources */,
 				B03A1A8E2C145C02006CFB9C /* TamagotchiCollectionViewCell.swift in Sources */,
 				B03A1A912C15DFD6006CFB9C /* ReuseIdentifier.swift in Sources */,
+				B07B0AC32C25AA8F005C282F /* DetailPopupView.swift in Sources */,
 				B03A1A772C145929006CFB9C /* AppDelegate.swift in Sources */,
 				B03A1A792C145929006CFB9C /* SceneDelegate.swift in Sources */,
 			);
