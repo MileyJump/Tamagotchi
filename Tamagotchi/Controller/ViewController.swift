@@ -80,10 +80,15 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         let detailview = DetailPopupView()
         view.addSubview(detailview)
         
+        
+//        
+//        detailview.snp.makeConstraints { make in
+//            make.center.equalToSuperview()
+//            make.verticalEdges.equalTo(view.safeAreaLayoutGuide).inset(160)
+//            make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(60)
+//        }
         detailview.snp.makeConstraints { make in
-            make.center.equalToSuperview()
-            make.verticalEdges.equalTo(view.safeAreaLayoutGuide).inset(160)
-            make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(60)
+            make.edges.equalToSuperview()
         }
     }
     

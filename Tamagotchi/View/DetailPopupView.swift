@@ -9,6 +9,19 @@ import UIKit
 
 class DetailPopupView: UIView {
     
+    private let backgroundView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .black.withAlphaComponent(0.3)
+        return view
+    }()
+  
+    private let popupView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .customBackgroundColor
+        view.layer.cornerRadius = 6
+        return view
+    }()
+    
     private let tamagotchiImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "1-1")
@@ -19,7 +32,7 @@ class DetailPopupView: UIView {
     private let contentsView: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 6
-        view.layer.borderColor = UIColor.black.cgColor
+        view.layer.borderColor = UIColor.customFontColor.cgColor
         view.layer.borderWidth = 1
         view.backgroundColor = .clear
         return view
@@ -34,10 +47,52 @@ class DetailPopupView: UIView {
         label.backgroundColor = .clear
         return label
     }()
+    
+    private let lineView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .customFontColor
+        return view
+    }()
+    
+    private let descriptionLabel: UILabel = {
+        let label = UILabel()
+        label.text = "저는 방실방실 다마고치입니다. 키는 100km 몸무게는 150톤이에용 성격은 화끈하고 날라다닙니당~! 열심히 잘 먹고 잘 클 자신은 있답니당 방실방실!"
+        label.textColor = .customFontColor
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        label.font = .systemFont(ofSize: 13)
+        return label
+    }()
+    
+    private let buttonLineView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .customFontColor.withAlphaComponent(0.3)
+        return view
+    }()
+    
+    private let cancelButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("취소", for: .normal)
+        button.setTitleColor(.customFontColor, for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 15)
+        button.backgroundColor = .lightGray.withAlphaComponent(0.2)
+        return button
+    }()
+    
+    
+    private let startButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("시작", for: .normal)
+        button.setTitleColor(.customFontColor, for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 15)
+        return button
+    }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureView()
+        configureHierarchy()
+        configureLayout()
     }
     
     required init?(coder: NSCoder) {
@@ -45,22 +100,83 @@ class DetailPopupView: UIView {
     }
     
     func configureView() {
-        backgroundColor = .blue
+        
     }
     
     
     private func configureHierarchy() {
-        addSubview(tamagotchiImageView)
-        addSubview(contentsView)
-        addSubview(tamagotchiNameLabel)
+        addSubview(backgroundView)
+        backgroundView.addSubview(popupView)
+        popupView.addSubview(tamagotchiImageView)
+        popupView.addSubview(contentsView)
+        popupView.addSubview(tamagotchiNameLabel)
+        popupView.addSubview(lineView)
+        popupView.addSubview(descriptionLabel)
+        popupView.addSubview(buttonLineView)
+        popupView.addSubview(cancelButton)
+        popupView.addSubview(startButton)
     }
     
     private func configureLayout() {
-        tamagotchiImageView.snp.makeConstraints { make in
-            make.top.horizontalEdges.equalToSuperview().inset(30)
-            make.height.equalToSuperview().multipliedBy(0.3)
-            make.width.equalTo(tamagotchiImageView.snp.height)
+        backgroundView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
         }
+        
+        popupView.snp.makeConstraints { make in
+            make.center.equalTo(backgroundView)
+            make.height.equalTo(backgroundView.snp.height).multipliedBy(0.52)
+            make.width.equalTo(popupView.snp.height).multipliedBy(0.7)
+        }
+        
+        tamagotchiImageView.snp.makeConstraints { make in
+            make.top.equalTo(popupView.snp.top).inset(50)
+            make.centerX.equalTo(popupView)
+            make.size.equalTo(125)
+        }
+        
+        tamagotchiNameLabel.snp.makeConstraints { make in
+            make.center.equalTo(contentsView)
+        }
+        
+        contentsView.snp.makeConstraints { make in
+            make.height.equalTo(30)
+            make.leading.equalTo(tamagotchiNameLabel.snp.leading).offset(-6)
+            make.trailing.equalTo(tamagotchiNameLabel.snp.trailing).offset(6)
+            make.centerX.equalToSuperview()
+            make.top.equalTo(tamagotchiImageView.snp.bottom).offset(6)
+        }
+        
+        lineView.snp.makeConstraints { make in
+            make.top.equalTo(contentsView.snp.bottom).offset(30)
+            make.height.equalTo(1)
+            make.horizontalEdges.equalTo(popupView).inset(40)
+        }
+        
+        descriptionLabel.snp.makeConstraints { make in
+            make.top.equalTo(lineView.snp.bottom).offset(20)
+            make.horizontalEdges.equalTo(lineView)
+            make.bottom.equalTo(cancelButton.snp.top).offset(-20)
+        }
+        
+        cancelButton.snp.makeConstraints { make in
+            make.width.equalTo(popupView.snp.width).multipliedBy(0.5)
+            make.height.equalTo(cancelButton.snp.width).multipliedBy(0.3)
+            make.bottom.leading.equalTo(popupView)
+        }
+        
+        startButton.snp.makeConstraints { make in
+            make.bottom.size.equalTo(cancelButton)
+            make.trailing.equalTo(popupView.snp.trailing)
+            
+        }
+        
+        buttonLineView.snp.makeConstraints { make in
+            make.horizontalEdges.equalTo(popupView)
+            make.height.equalTo(1)
+            make.bottom.equalTo(startButton.snp.top)
+        }
+        
+        
     }
     
 }
