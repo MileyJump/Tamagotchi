@@ -47,7 +47,7 @@ class TamagotchiCollectionViewCell: UICollectionViewCell {
     }
     
     func configrueCell(_ data: TamagotchiModel) {
-        tamagotchiImageView.image = data.tamagotchiImage
+        tamagotchiImageView.image = UIImage(named: data.tamagotchiImage)
         tamagotchiNameLabel.text = data.tamagotchiName
         
     }

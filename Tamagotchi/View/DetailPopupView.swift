@@ -70,12 +70,13 @@ class DetailPopupView: UIView {
         return view
     }()
     
-    private let cancelButton: UIButton = {
+    private lazy var cancelButton: UIButton = {
         let button = UIButton()
         button.setTitle("취소", for: .normal)
         button.setTitleColor(.customFontColor, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 15)
         button.backgroundColor = .lightGray.withAlphaComponent(0.2)
+        button.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -99,10 +100,15 @@ class DetailPopupView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configureView() {
-        
+    func configureCell(_ data: TamagotchiModel) {
+        tamagotchiImageView.image = UIImage(named: data.tamagotchiImage)
+        tamagotchiNameLabel.text = data.tamagotchiName
     }
     
+    @objc func cancelButtonTapped() {
+        self.removeFromSuperview()
+    }
+     
     
     private func configureHierarchy() {
         addSubview(backgroundView)

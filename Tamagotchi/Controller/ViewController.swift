@@ -72,24 +72,14 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //        let vc = DetailPopupViewController()
-        //        
-        //        present(vc, animated: true)
         
-       
         let detailview = DetailPopupView()
         view.addSubview(detailview)
-        
-        
-//        
-//        detailview.snp.makeConstraints { make in
-//            make.center.equalToSuperview()
-//            make.verticalEdges.equalTo(view.safeAreaLayoutGuide).inset(160)
-//            make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(60)
-//        }
         detailview.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        
+        detailview.configureCell(tamagotchiManager[indexPath.row])
     }
     
 }

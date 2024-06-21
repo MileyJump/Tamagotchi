@@ -17,7 +17,6 @@
 		B03A1A912C15DFD6006CFB9C /* ReuseIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03A1A902C15DFD6006CFB9C /* ReuseIdentifier.swift */; };
 		B07B0AB82C259CD3005C282F /* TamagotchiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07B0AB72C259CD3005C282F /* TamagotchiModel.swift */; };
 		B07B0ABD2C25A514005C282F /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07B0ABC2C25A514005C282F /* UIColor+Extension.swift */; };
-		B07B0ABF2C25A9C5005C282F /* DetailPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07B0ABE2C25A9C5005C282F /* DetailPopupViewController.swift */; };
 		B07B0AC32C25AA8F005C282F /* DetailPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07B0AC22C25AA8F005C282F /* DetailPopupView.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,7 +32,6 @@
 		B03A1A902C15DFD6006CFB9C /* ReuseIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifier.swift; sourceTree = "<group>"; };
 		B07B0AB72C259CD3005C282F /* TamagotchiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamagotchiModel.swift; sourceTree = "<group>"; };
 		B07B0ABC2C25A514005C282F /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
-		B07B0ABE2C25A9C5005C282F /* DetailPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPopupViewController.swift; sourceTree = "<group>"; };
 		B07B0AC22C25AA8F005C282F /* DetailPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPopupView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -111,7 +109,6 @@
 			isa = PBXGroup;
 			children = (
 				B03A1A7A2C145929006CFB9C /* ViewController.swift */,
-				B07B0ABE2C25A9C5005C282F /* DetailPopupViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -192,7 +189,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B07B0ABF2C25A9C5005C282F /* DetailPopupViewController.swift in Sources */,
 				B07B0ABD2C25A514005C282F /* UIColor+Extension.swift in Sources */,
 				B07B0AB82C259CD3005C282F /* TamagotchiModel.swift in Sources */,
 				B03A1A7B2C145929006CFB9C /* ViewController.swift in Sources */,
