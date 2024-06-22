@@ -20,7 +20,7 @@ class SettingsViewController: UIViewController {
     let tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(SettingsTableViewCell.self, forCellReuseIdentifier: SettingsTableViewCell.identifier)
-        tableView.backgroundColor = .blue
+        tableView.backgroundColor = .clear
         tableView.estimatedRowHeight = 44
         tableView.rowHeight = UITableView.automaticDimension
         return tableView
@@ -76,6 +76,32 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-   
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let settingLabel = SettingOptions.allCases[indexPath.row]
+        
+        switch settingLabel {
+        case .nameSetting:
+            let vc = NameChangeViewController()
+            navigationController?.pushViewController(vc, animated: true)
+        case .tamagotchiChange:
+            let vc = ViewController()
+            vc.type = .change
+            navigationController?.pushViewController(vc, animated: true)
+        case .dataReset:
+            configureAlret()
+        }
+        
+    }
+    
+    func configureAlret() {
+        let alert = UIAlertController(title: "데이터 초기화", message: "정말 다시 처음부터 시작하실 건가용?", preferredStyle: .alert)
+        let open = UIAlertAction(title: "웅", style: .default)
+        let cancel = UIAlertAction(title: "아냐!", style: .cancel)
+        
+        alert.addAction(cancel)
+        alert.addAction(open)
+        
+        present(alert, animated: true)
+    }
 }
 

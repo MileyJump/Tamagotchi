@@ -43,14 +43,15 @@ class SettingsTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configureHierarchy()
         configureLayout()
+        configureView()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configureCell(_ data: String) {
-        
+    func configureView() {
+        self.backgroundColor = .clear
     }
     
     

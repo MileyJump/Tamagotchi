@@ -22,6 +22,7 @@
 		B07B0ACA2C26F4D0005C282F /* TextFieldEffects in Frameworks */ = {isa = PBXBuildFile; productRef = B07B0AC92C26F4D0005C282F /* TextFieldEffects */; };
 		B07B0ACC2C2704D4005C282F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07B0ACB2C2704D4005C282F /* SettingsViewController.swift */; };
 		B07B0ACF2C270E4A005C282F /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07B0ACE2C270E4A005C282F /* SettingsTableViewCell.swift */; };
+		B07B0AD12C27180C005C282F /* NameChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07B0AD02C27180C005C282F /* NameChangeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		B07B0AC42C25C8EC005C282F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		B07B0ACB2C2704D4005C282F /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		B07B0ACE2C270E4A005C282F /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		B07B0AD02C27180C005C282F /* NameChangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameChangeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 				B03A1A7A2C145929006CFB9C /* ViewController.swift */,
 				B07B0AC42C25C8EC005C282F /* MainViewController.swift */,
 				B07B0ACB2C2704D4005C282F /* SettingsViewController.swift */,
+				B07B0AD02C27180C005C282F /* NameChangeViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 				B07B0AC52C25C8EC005C282F /* MainViewController.swift in Sources */,
 				B03A1A772C145929006CFB9C /* AppDelegate.swift in Sources */,
 				B03A1A792C145929006CFB9C /* SceneDelegate.swift in Sources */,
+				B07B0AD12C27180C005C282F /* NameChangeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
