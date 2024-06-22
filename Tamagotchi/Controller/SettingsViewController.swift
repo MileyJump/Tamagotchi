@@ -84,9 +84,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
             let vc = NameChangeViewController()
             navigationController?.pushViewController(vc, animated: true)
         case .tamagotchiChange:
-            let vc = ViewController()
-            vc.type = .change
-            navigationController?.pushViewController(vc, animated: true)
+            changeBegin()
         case .dataReset:
             configureAlret()
         }
@@ -104,6 +102,17 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         alert.addAction(open)
         
         present(alert, animated: true)
+    }
+    
+    func changeBegin() {
+        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+        let sceneDelegate = windowScene?.delegate as? SceneDelegate
+        let rootViewController = ViewController()
+        rootViewController.type = .change
+        let navigationController = UINavigationController(rootViewController: rootViewController)
+        sceneDelegate?.window?.rootViewController = navigationController
+        sceneDelegate?.window?.makeKeyAndVisible()
+        
     }
     
     func tamagotchiBegin() {
