@@ -9,6 +9,14 @@ import UIKit
 
 class DetailPopupView: UIView {
     
+    var tamagotchiType: TamagotchiType = .select {
+        didSet {
+            setUpStartButton()
+        }
+    }
+
+    
+    
     private let backgroundView: UIView = {
         let view = UIView()
         view.backgroundColor = .black.withAlphaComponent(0.3)
@@ -81,13 +89,15 @@ class DetailPopupView: UIView {
     }()
     
     
-    private let startButton: UIButton = {
+    let startButton: UIButton = {
         let button = UIButton()
-        button.setTitle("시작", for: .normal)
         button.setTitleColor(.customFontColor, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 15)
+//        button.addTarget(self, action: #selector(startButtonTapped), for: .touchUpInside)
         return button
     }()
+    
+    
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -99,6 +109,16 @@ class DetailPopupView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func setUpStartButton() {
+        switch tamagotchiType {
+        case .select:
+            startButton.setTitle("시작하기", for: .normal)
+        case .change:
+            startButton.setTitle("변경하기", for: .normal)
+        }
+    }
+   
+    
     func configureCell(_ data: TamagotchiModel) {
         tamagotchiImageView.image = UIImage(named: data.tamagotchiImage)
         tamagotchiNameLabel.text = data.tamagotchiName
@@ -106,6 +126,11 @@ class DetailPopupView: UIView {
     
     @objc func cancelButtonTapped() {
         self.removeFromSuperview()
+    }
+    
+    @objc func startButtonTapped() {
+        print(#function)
+        
     }
      
     

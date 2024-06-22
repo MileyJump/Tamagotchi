@@ -18,6 +18,7 @@
 		B07B0AB82C259CD3005C282F /* TamagotchiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07B0AB72C259CD3005C282F /* TamagotchiModel.swift */; };
 		B07B0ABD2C25A514005C282F /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07B0ABC2C25A514005C282F /* UIColor+Extension.swift */; };
 		B07B0AC32C25AA8F005C282F /* DetailPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07B0AC22C25AA8F005C282F /* DetailPopupView.swift */; };
+		B07B0AC52C25C8EC005C282F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07B0AC42C25C8EC005C282F /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		B07B0AB72C259CD3005C282F /* TamagotchiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamagotchiModel.swift; sourceTree = "<group>"; };
 		B07B0ABC2C25A514005C282F /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		B07B0AC22C25AA8F005C282F /* DetailPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPopupView.swift; sourceTree = "<group>"; };
+		B07B0AC42C25C8EC005C282F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				B03A1A7A2C145929006CFB9C /* ViewController.swift */,
+				B07B0AC42C25C8EC005C282F /* MainViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 				B03A1A8E2C145C02006CFB9C /* TamagotchiCollectionViewCell.swift in Sources */,
 				B03A1A912C15DFD6006CFB9C /* ReuseIdentifier.swift in Sources */,
 				B07B0AC32C25AA8F005C282F /* DetailPopupView.swift in Sources */,
+				B07B0AC52C25C8EC005C282F /* MainViewController.swift in Sources */,
 				B03A1A772C145929006CFB9C /* AppDelegate.swift in Sources */,
 				B03A1A792C145929006CFB9C /* SceneDelegate.swift in Sources */,
 			);

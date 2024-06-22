@@ -7,9 +7,16 @@
 
 import UIKit
 
+enum TamagotchiType: String {
+    case select = "다마고치 선택하기"
+    case change = "다마고치 변경하기"
+}
+
 class ViewController: UIViewController {
     
     var tamagotchiManager: [TamagotchiModel] = TamagotchiManager().tamagotchiModel
+    
+    var type:TamagotchiType = .select
     
     private let tamagotchiCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -37,6 +44,7 @@ class ViewController: UIViewController {
     
     private func configureView() {
         view.backgroundColor = .customBackgroundColor
+        navigationItem.title = type.rawValue
     }
     
     
@@ -75,11 +83,20 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         
         let detailview = DetailPopupView()
         view.addSubview(detailview)
+        detailview.tamagotchiType = type
         detailview.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
         
+        detailview.startButton.addTarget(self, action: #selector(startButtonTapped), for: .touchUpInside)
+        
         detailview.configureCell(tamagotchiManager[indexPath.row])
+    }
+    
+    @objc func startButtonTapped() {
+        let vc = MainViewController()
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: false)
     }
     
 }
