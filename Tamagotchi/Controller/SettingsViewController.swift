@@ -95,13 +95,24 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func configureAlret() {
         let alert = UIAlertController(title: "데이터 초기화", message: "정말 다시 처음부터 시작하실 건가용?", preferredStyle: .alert)
-        let open = UIAlertAction(title: "웅", style: .default)
+        let open = UIAlertAction(title: "웅", style: .default) { action in
+            self.tamagotchiBegin()
+        }
         let cancel = UIAlertAction(title: "아냐!", style: .cancel)
         
         alert.addAction(cancel)
         alert.addAction(open)
         
         present(alert, animated: true)
+    }
+    
+    func tamagotchiBegin() {
+        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+        let sceneDelegate = windowScene?.delegate as? SceneDelegate
+        let rootViewController = ViewController()
+        let navigationController = UINavigationController(rootViewController: rootViewController)
+        sceneDelegate?.window?.rootViewController = navigationController
+        sceneDelegate?.window?.makeKeyAndVisible()
     }
 }
 
