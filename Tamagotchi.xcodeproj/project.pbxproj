@@ -19,6 +19,8 @@
 		B07B0ABD2C25A514005C282F /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07B0ABC2C25A514005C282F /* UIColor+Extension.swift */; };
 		B07B0AC32C25AA8F005C282F /* DetailPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07B0AC22C25AA8F005C282F /* DetailPopupView.swift */; };
 		B07B0AC52C25C8EC005C282F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07B0AC42C25C8EC005C282F /* MainViewController.swift */; };
+		B07B0ACA2C26F4D0005C282F /* TextFieldEffects in Frameworks */ = {isa = PBXBuildFile; productRef = B07B0AC92C26F4D0005C282F /* TextFieldEffects */; };
+		B07B0ACC2C2704D4005C282F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07B0ACB2C2704D4005C282F /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,7 @@
 		B07B0ABC2C25A514005C282F /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		B07B0AC22C25AA8F005C282F /* DetailPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPopupView.swift; sourceTree = "<group>"; };
 		B07B0AC42C25C8EC005C282F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		B07B0ACB2C2704D4005C282F /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +46,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B03A1A8C2C145BE0006CFB9C /* SnapKit in Frameworks */,
+				B07B0ACA2C26F4D0005C282F /* TextFieldEffects in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +116,7 @@
 			children = (
 				B03A1A7A2C145929006CFB9C /* ViewController.swift */,
 				B07B0AC42C25C8EC005C282F /* MainViewController.swift */,
+				B07B0ACB2C2704D4005C282F /* SettingsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -134,6 +139,7 @@
 			name = Tamagotchi;
 			packageProductDependencies = (
 				B03A1A8B2C145BE0006CFB9C /* SnapKit */,
+				B07B0AC92C26F4D0005C282F /* TextFieldEffects */,
 			);
 			productName = Tamagotchi;
 			productReference = B03A1A732C145929006CFB9C /* Tamagotchi.app */;
@@ -165,6 +171,7 @@
 			mainGroup = B03A1A6A2C145929006CFB9C;
 			packageReferences = (
 				B03A1A8A2C145BE0006CFB9C /* XCRemoteSwiftPackageReference "SnapKit" */,
+				B07B0AC82C26F4D0005C282F /* XCRemoteSwiftPackageReference "TextFieldEffects" */,
 			);
 			productRefGroup = B03A1A742C145929006CFB9C /* Products */;
 			projectDirPath = "";
@@ -195,6 +202,7 @@
 				B07B0ABD2C25A514005C282F /* UIColor+Extension.swift in Sources */,
 				B07B0AB82C259CD3005C282F /* TamagotchiModel.swift in Sources */,
 				B03A1A7B2C145929006CFB9C /* ViewController.swift in Sources */,
+				B07B0ACC2C2704D4005C282F /* SettingsViewController.swift in Sources */,
 				B03A1A8E2C145C02006CFB9C /* TamagotchiCollectionViewCell.swift in Sources */,
 				B03A1A912C15DFD6006CFB9C /* ReuseIdentifier.swift in Sources */,
 				B07B0AC32C25AA8F005C282F /* DetailPopupView.swift in Sources */,
@@ -429,6 +437,14 @@
 				minimumVersion = 5.7.1;
 			};
 		};
+		B07B0AC82C26F4D0005C282F /* XCRemoteSwiftPackageReference "TextFieldEffects" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/raulriera/TextFieldEffects.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.7.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -436,6 +452,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B03A1A8A2C145BE0006CFB9C /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		B07B0AC92C26F4D0005C282F /* TextFieldEffects */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B07B0AC82C26F4D0005C282F /* XCRemoteSwiftPackageReference "TextFieldEffects" */;
+			productName = TextFieldEffects;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

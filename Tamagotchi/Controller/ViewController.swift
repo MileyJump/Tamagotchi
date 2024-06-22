@@ -95,8 +95,9 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     @objc func startButtonTapped() {
         let vc = MainViewController()
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: false)
+        let mainVc = UINavigationController(rootViewController: vc)
+        mainVc.modalPresentationStyle = .fullScreen
+        present(mainVc, animated: false)
     }
     
 }

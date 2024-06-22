@@ -15,8 +15,6 @@ class DetailPopupView: UIView {
         }
     }
 
-    
-    
     private let backgroundView: UIView = {
         let view = UIView()
         view.backgroundColor = .black.withAlphaComponent(0.3)
@@ -93,7 +91,6 @@ class DetailPopupView: UIView {
         let button = UIButton()
         button.setTitleColor(.customFontColor, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 15)
-//        button.addTarget(self, action: #selector(startButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -127,12 +124,7 @@ class DetailPopupView: UIView {
     @objc func cancelButtonTapped() {
         self.removeFromSuperview()
     }
-    
-    @objc func startButtonTapped() {
-        print(#function)
-        
-    }
-     
+  
     
     private func configureHierarchy() {
         addSubview(backgroundView)
