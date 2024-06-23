@@ -15,7 +15,7 @@ class SettingsViewController: UIViewController {
     
     var list = SettingsList().list
     
-    let tableView: UITableView = {
+    let settingTableView: UITableView = {
         let tableView = UITableView()
         tableView.register(SettingsTableViewCell.self, forCellReuseIdentifier: SettingsTableViewCell.identifier)
         tableView.backgroundColor = .clear
@@ -34,27 +34,26 @@ class SettingsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if let name = UserDatas.name {
-            list[0].nameLabel = name
-            tableView.reloadData()
-        }
+        guard let name = UserDatas.name else { return }
         
+        list[0].nameLabel = name
+        settingTableView.reloadData()
     }
     
     private func configureView() {
         view.backgroundColor = .customBackgroundColor
         
         navigationItem.title = "설정"
-        tableView.delegate = self
-        tableView.dataSource = self
+        settingTableView.delegate = self
+        settingTableView.dataSource = self
     }
     
     func configureHierarchy() {
-        view.addSubview(tableView)
+        view.addSubview(settingTableView)
     }
     
     func configureLayout() {
-        tableView.snp.makeConstraints { make in
+        settingTableView.snp.makeConstraints { make in
             make.edges.equalTo(view.safeAreaLayoutGuide)
         }
     }
@@ -66,7 +65,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let settingLabel = SettingOptions.allCases[indexPath.row]
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: SettingsTableViewCell.identifier, for: indexPath) as! SettingsTableViewCell
         cell.configureCell(list[indexPath.row])
 //        cell.settingsTitleLabel.text = settingLabel.rawValue

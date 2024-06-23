@@ -70,6 +70,7 @@ class SettingsTableViewCell: UITableViewCell, NicknameChange {
     func configureCell(_ data: SettingsModel ) {
         settingsTitleLabel.text = data.settingTitle.title
         iconImageView.image = UIImage(systemName: data.settingTitle.iconImageName)
+        nameLabel.text = data.nameLabel
     }
     
     func configureView() {
