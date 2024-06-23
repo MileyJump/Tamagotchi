@@ -11,7 +11,7 @@ import TextFieldEffects
 class MainViewController: UIViewController {
     
     // MARK: - 프로퍼티
-    
+    var tamagotchiModel: TamagotchiModel?
     
     var tamagotchiImage: String = "" {
         didSet {
@@ -24,9 +24,6 @@ class MainViewController: UIViewController {
             statusName()
         }
     }
-    
-    var tamagotchiModel: TamagotchiModel?
-    
     
     var levelCount = 1 {
         didSet {
@@ -58,13 +55,13 @@ class MainViewController: UIViewController {
         return imageView
     }()
     
-    private let bubbleLabel: UILabel = {
+    private lazy var bubbleLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
         label.numberOfLines = 0
         label.font = .systemFont(ofSize: 15)
         label.textColor = .customFontColor
-        label.text = "복습 아직 안 하셨다고요? 지금 잠이 오세요? 대장님????"
+        label.text = Bubble.randomMessage()
         return label
     }()
     
@@ -233,6 +230,7 @@ class MainViewController: UIViewController {
             eatCount += eatText
             eatTextField.text = ""
         }
+        bubbleLabel.text = Bubble.randomMessage()
     }
     
     @objc func waterButtonTapped() {
@@ -243,6 +241,7 @@ class MainViewController: UIViewController {
             waterCount += waterText
             waterTextField.text = ""
         }
+        bubbleLabel.text = Bubble.randomMessage()
     }
     
     @objc func settingsButtonTapped() {
