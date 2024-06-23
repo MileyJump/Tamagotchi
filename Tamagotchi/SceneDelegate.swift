@@ -16,6 +16,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let scene = (scene as? UIWindowScene) else { return }
         
+        if UserDatas.name == nil {
+            UserDatas.userNameSave(value: "대장")
+        }
+        
         window = UIWindow(windowScene: scene)
         
         let viewController = ViewController()

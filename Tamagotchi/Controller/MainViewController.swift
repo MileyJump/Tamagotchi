@@ -165,6 +165,10 @@ class MainViewController: UIViewController {
         configureView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        configureNavigation()
+    }
+    
     private func foodStatus() {
         statusLabel.text = "LV\(levelCount) · 밥알 \(eatCount)개 · 물방울 \(waterCount)개"
     }
@@ -251,10 +255,12 @@ class MainViewController: UIViewController {
     
     private func configureView() {
         view.backgroundColor = .customBackgroundColor
-        
+    }
+    
+    private func configureNavigation() {
         guard let name = UserDatas.name else { return }
         
-        navigationItem.title = "\(name)의 다마고치"
+        navigationItem.title = "\(name)님의 다마고치"
         
         let settings = UIBarButtonItem(image: UIImage(systemName: "person.circle"), style: .plain, target: self, action: #selector(settingsButtonTapped))
         navigationItem.rightBarButtonItem = settings

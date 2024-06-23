@@ -47,17 +47,17 @@ struct TamagotchiManager {
 
 struct Bubble {
     static var name: String {
-        return UserDatas.name ?? "대장님"
+        return UserDatas.name ?? "대장"
     }
     
     static var bubbleMessages = [
-        "\(name), 배가 너무고파요 밥을 주세요",
+        "\(name)님 배가 너무고파요 밥을 주세요",
         "저는 무럭무럭 성장하는 중입니다",
-        "\(name), 저는 오늘 너무 졸려서 잠을 많이 자야겠어요",
-        "\(name), 코딩 재밌으세요?",
+        "\(name)님 저는 오늘 너무 졸려서 잠을 많이 자야겠어요",
+        "\(name)님 코딩 재밌으세요?",
         "쉬시면 안 돼요 더 많이 공부하세요",
-        "\(name) ~. 즐거운 하루 보내세요",
-        "아 \(name) ~ 코딩 속도가 너무 느리시네요^^ 거북이세요? 거북거북",
+        "\(name)님 ~ 즐거운 하루 보내세요",
+        "아 \(name)님ㅋ 코딩 속도가 너무 느리시네요^^ 거북이세요? 거북거북",
     ]
     
     static func randomMessage() -> String {
