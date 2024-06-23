@@ -68,20 +68,6 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: SettingsTableViewCell.identifier, for: indexPath) as! SettingsTableViewCell
         cell.configureCell(list[indexPath.row])
-//        cell.settingsTitleLabel.text = settingLabel.rawValue
-//        
-//        switch settingLabel {
-//        case .nameSetting:
-//            cell.iconImageView.image = UIImage(systemName: "pencil")
-//            print(self.nickname)
-//            
-//        case .tamagotchiChange:
-//            cell.iconImageView.image = UIImage(systemName: "moon.fill")
-//            
-//        case .dataReset:
-//            cell.iconImageView.image = UIImage(systemName: "arrow.clockwise")
-//            
-//        }
         
         return cell
     }
@@ -128,6 +114,14 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tamagotchiBegin() {
+        let defaults = UserDefaults.standard
+        if let appDomain = Bundle.main.bundleIdentifier {
+            defaults.removePersistentDomain(forName: appDomain)
+            defaults.synchronize()
+        }
+        
+        UserDatas.resetData()
+        
         let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
         let sceneDelegate = windowScene?.delegate as? SceneDelegate
         let rootViewController = ViewController()

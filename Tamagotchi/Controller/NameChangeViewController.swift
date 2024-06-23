@@ -15,7 +15,7 @@ class NameChangeViewController: UIViewController {
     
     private let nicknameTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "대장님의 이름을 정해주세요!"
+        textField.placeholder = "이름을 정해주세요!"
         textField.textColor = .customFontColor
         textField.font = .boldSystemFont(ofSize: 13)
         return textField

@@ -22,4 +22,8 @@ struct UserDatas {
         UserDefaults.standard.set(value, forKey: "nickname")
     }
     
+    static func resetData() {
+        UserDefaults.standard.setValue("대장", forKey: "nickname")
+    }
+    
 }
