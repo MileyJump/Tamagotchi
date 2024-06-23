@@ -251,7 +251,10 @@ class MainViewController: UIViewController {
     
     private func configureView() {
         view.backgroundColor = .customBackgroundColor
-        navigationItem.title = "대장님의 다마고치"
+        
+        guard let name = UserDatas.name else { return }
+        
+        navigationItem.title = "\(name) 다마고치"
         
         let settings = UIBarButtonItem(image: UIImage(systemName: "person.circle"), style: .plain, target: self, action: #selector(settingsButtonTapped))
         navigationItem.rightBarButtonItem = settings
