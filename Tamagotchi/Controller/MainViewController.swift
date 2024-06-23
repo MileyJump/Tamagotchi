@@ -11,7 +11,7 @@ import TextFieldEffects
 class MainViewController: UIViewController {
     
     // MARK: - 프로퍼티
-
+    
     
     var tamagotchiImage: String = "" {
         didSet {
@@ -27,8 +27,29 @@ class MainViewController: UIViewController {
     
     var tamagotchiModel: TamagotchiModel?
     
-    var eatCount = 0
-    var waterCount = 0
+    
+    var levelCount = 1 {
+        didSet {
+            print("levelCount")
+            imageStatus()
+        }
+    }
+    
+    var eatCount = 0 {
+        didSet {
+            print("eatCount")
+            levelStatus()
+            foodStatus()
+        }
+    }
+    
+    var waterCount = 0 {
+        didSet {
+            print("waterCount")
+            levelStatus()
+            foodStatus()
+        }
+    }
     
     
     private let bubbleImageView: UIImageView = {
@@ -90,7 +111,7 @@ class MainViewController: UIViewController {
         textField.textAlignment = .center
         return textField
     }()
- 
+    
     private let waterTextField: UITextField = {
         let textField = UITextField()
         textField.font = .systemFont(ofSize: 13)
@@ -111,8 +132,8 @@ class MainViewController: UIViewController {
         view.backgroundColor = .customFontColor
         return view
     }()
- 
-    private let eatButton: UIButton = {
+    
+    private lazy var eatButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "drop.circle"), for: .normal)
         button.setTitle("밥먹기", for: .normal)
@@ -121,18 +142,20 @@ class MainViewController: UIViewController {
         button.layer.borderWidth = 1
         button.layer.cornerRadius = 8
         button.setTitleColor(.customFontColor, for: .normal)
+        button.addTarget(self, action: #selector(eatButtonTapped), for: .touchUpInside)
         return button
     }()
     
-    private let waterButton: UIButton = {
+    private lazy var waterButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "leaf.circle"), for: .normal)
         button.setTitleColor(.customFontColor, for: .normal)
-        button.setTitle("물먹기", for: .normal) 
+        button.setTitle("물먹기", for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 13)
         button.layer.borderColor = UIColor.customFontColor.cgColor
         button.layer.borderWidth = 1
         button.layer.cornerRadius = 8
+        button.addTarget(self, action: #selector(waterButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -145,12 +168,86 @@ class MainViewController: UIViewController {
         configureView()
     }
     
+    private func foodStatus() {
+        statusLabel.text = "LV\(levelCount) · 밥알 \(eatCount)개 · 물방울 \(waterCount)개"
+    }
+    
+    private func levelStatus() {
+        let level = (eatCount / 5) + (waterCount / 2)
+        switch level {
+        case 0...9 :
+            levelCount = 1
+        case 10...19 :
+            levelCount = 1
+        case 20...29 :
+            levelCount = 2
+        case 30...39 :
+            levelCount = 3
+        case 40...49 :
+            levelCount = 4
+        case 50...59 :
+            levelCount = 5
+        case 60...69 :
+            levelCount = 6
+        case 70...79 :
+            levelCount = 7
+        case 80...89 :
+            levelCount = 8
+        case 90...99 :
+            levelCount = 9
+        case 100... :
+            levelCount = 20
+        default:
+            print(#function, "default")
+        }
+    }
+    
+    private func imageStatus() {
+        let imageMapping: [String: [String]] = [
+            "따끔따끔 다마고치": ["1-1", "1-2", "1-3", "1-4", "1-5", "1-6", "1-7", "1-8", "1-9"],
+            "방실방실 다마고치": ["2-1", "2-2", "2-3", "2-4", "2-5", "2-6", "2-7", "2-8", "2-9"],
+            "반짝반짝 다마고치": ["3-1", "3-2", "3-3", "3-4", "3-5", "3-6", "3-7", "3-8", "3-9"]
+        ]
+        
+        if let imageArray = imageMapping[tamagotchiName] {
+            let imageIndex = min(levelCount - 1, imageMapping.count - 1)
+            tamagotchiImage = imageArray[imageIndex]
+        }
+        
+    }
+    
+    
     private func statusImage() {
         tamagotchiImageView.image = UIImage(named: tamagotchiImage)
     }
     
     private func statusName() {
         tamagotchiNameLabel.text = tamagotchiName
+    }
+    
+    @objc func eatButtonTapped() {
+        guard let text = eatTextField.text else { return }
+        if text.isEmpty {
+            eatCount += 1
+        } else if let eatText = Int(text), eatText <= 99  {
+            eatCount += eatText
+            eatTextField.text = ""
+        }
+    }
+    
+    @objc func waterButtonTapped() {
+        guard let text = waterTextField.text else { return }
+        if text.isEmpty {
+            waterCount += 1
+        } else if let waterText = Int(text), waterText <= 99  {
+            waterCount += waterText
+            waterTextField.text = ""
+        }
+    }
+    
+    @objc func settingsButtonTapped() {
+        let vc = SettingsViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     private func configureView() {
@@ -162,7 +259,7 @@ class MainViewController: UIViewController {
         navigationItem.backButtonTitle = ""
         navigationController?.navigationBar.tintColor = .customFontColor
     }
-
+    
     private func configureHierarchy() {
         view.addSubview(bubbleImageView)
         view.addSubview(bubbleLabel)
@@ -176,11 +273,6 @@ class MainViewController: UIViewController {
         view.addSubview(waterLineView)
         view.addSubview(eatButton)
         view.addSubview(waterButton)
-    }
-    
-    @objc func settingsButtonTapped() {
-        let vc = SettingsViewController()
-        navigationController?.pushViewController(vc, animated: true)
     }
     
     private func configureLayout() {
