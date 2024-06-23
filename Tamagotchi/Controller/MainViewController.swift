@@ -254,7 +254,7 @@ class MainViewController: UIViewController {
         
         guard let name = UserDatas.name else { return }
         
-        navigationItem.title = "\(name) 다마고치"
+        navigationItem.title = "\(name)의 다마고치"
         
         let settings = UIBarButtonItem(image: UIImage(systemName: "person.circle"), style: .plain, target: self, action: #selector(settingsButtonTapped))
         navigationItem.rightBarButtonItem = settings
