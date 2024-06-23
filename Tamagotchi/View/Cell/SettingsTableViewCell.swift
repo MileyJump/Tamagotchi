@@ -7,7 +7,24 @@
 
 import UIKit
 
-class SettingsTableViewCell: UITableViewCell {
+protocol NicknameChange {
+    func nicknameSave(nickname: String)
+}
+
+class SettingsTableViewCell: UITableViewCell, NicknameChange {
+    func nicknameSave(nickname: String) {
+        self.nickname = nickname
+        print("아니 뭐지.. ")
+    }
+    
+    
+    
+    
+    var nickname = "고래밥" {
+        didSet {
+            print("ㅎㅎ")
+        }
+    }
     
     let iconImageView: UIImageView = {
         let imageView = UIImageView()
@@ -50,9 +67,15 @@ class SettingsTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func configureCell(_ data: SettingsModel ) {
+        settingsTitleLabel.text = data.settingTitle.title
+        iconImageView.image = UIImage(systemName: data.settingTitle.iconImageName)
+    }
+    
     func configureView() {
         self.backgroundColor = .clear
     }
+    
     
     
     func configureHierarchy() {

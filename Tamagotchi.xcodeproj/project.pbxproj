@@ -23,6 +23,8 @@
 		B07B0ACC2C2704D4005C282F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07B0ACB2C2704D4005C282F /* SettingsViewController.swift */; };
 		B07B0ACF2C270E4A005C282F /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07B0ACE2C270E4A005C282F /* SettingsTableViewCell.swift */; };
 		B07B0AD12C27180C005C282F /* NameChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07B0AD02C27180C005C282F /* NameChangeViewController.swift */; };
+		B0842A8D2C285F9500323C09 /* UserDatas.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0842A8C2C285F9500323C09 /* UserDatas.swift */; };
+		B0842A8F2C28612C00323C09 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0842A8E2C28612C00323C09 /* SettingsModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		B07B0ACB2C2704D4005C282F /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		B07B0ACE2C270E4A005C282F /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		B07B0AD02C27180C005C282F /* NameChangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameChangeViewController.swift; sourceTree = "<group>"; };
+		B0842A8C2C285F9500323C09 /* UserDatas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDatas.swift; sourceTree = "<group>"; };
+		B0842A8E2C28612C00323C09 /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,8 +86,9 @@
 				B07B0ABA2C25A140005C282F /* View */,
 				B07B0AB92C25A139005C282F /* Model */,
 				B03A1A8F2C15DFB3006CFB9C /* Extension */,
-				B03A1A7F2C14592B006CFB9C /* Assets.xcassets */,
+				B0842A8B2C285F6D00323C09 /* UserDefaults */,
 				B03A1A812C14592B006CFB9C /* LaunchScreen.storyboard */,
+				B03A1A7F2C14592B006CFB9C /* Assets.xcassets */,
 				B03A1A842C14592B006CFB9C /* Info.plist */,
 			);
 			path = Tamagotchi;
@@ -102,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				B07B0AB72C259CD3005C282F /* TamagotchiModel.swift */,
+				B0842A8E2C28612C00323C09 /* SettingsModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -133,6 +139,14 @@
 				B03A1A8D2C145C02006CFB9C /* TamagotchiCollectionViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		B0842A8B2C285F6D00323C09 /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				B0842A8C2C285F9500323C09 /* UserDatas.swift */,
+			);
+			path = UserDefaults;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,12 +232,14 @@
 				B03A1A7B2C145929006CFB9C /* ViewController.swift in Sources */,
 				B07B0ACC2C2704D4005C282F /* SettingsViewController.swift in Sources */,
 				B03A1A8E2C145C02006CFB9C /* TamagotchiCollectionViewCell.swift in Sources */,
+				B0842A8D2C285F9500323C09 /* UserDatas.swift in Sources */,
 				B03A1A912C15DFD6006CFB9C /* ReuseIdentifier.swift in Sources */,
 				B07B0ACF2C270E4A005C282F /* SettingsTableViewCell.swift in Sources */,
 				B07B0AC32C25AA8F005C282F /* DetailPopupView.swift in Sources */,
 				B07B0AC52C25C8EC005C282F /* MainViewController.swift in Sources */,
 				B03A1A772C145929006CFB9C /* AppDelegate.swift in Sources */,
 				B03A1A792C145929006CFB9C /* SceneDelegate.swift in Sources */,
+				B0842A8F2C28612C00323C09 /* SettingsModel.swift in Sources */,
 				B07B0AD12C27180C005C282F /* NameChangeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
