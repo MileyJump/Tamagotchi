@@ -41,6 +41,12 @@ class NameChangeViewController: UIViewController {
     
     @objc func saveButtonTapped() {
         
+        if let nickname = nicknameTextField.text {
+            UserDefaults.standard.set(nickname, forKey: "nickname")
+            print("저장 됨")
+        } else {
+            print ("저장 안됨")
+        }
     }
     
     func configureHierarchy() {
