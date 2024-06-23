@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 enum TamagotchiType: String {
     case select = "다마고치 선택하기"
@@ -15,6 +16,8 @@ enum TamagotchiType: String {
 class ViewController: UIViewController {
     
     var tamagotchiManager: [TamagotchiModel] = TamagotchiManager().tamagotchiModel
+    
+    var tamagotchiModel: TamagotchiModel?
     
     var type:TamagotchiType = .select
     
@@ -91,15 +94,19 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         detailview.startButton.addTarget(self, action: #selector(startButtonTapped), for: .touchUpInside)
         
         detailview.configureCell(tamagotchiManager[indexPath.row])
+        tamagotchiModel = tamagotchiManager[indexPath.row]
     }
     
     @objc func startButtonTapped() {
         let vc = MainViewController()
+        if let tamagotchiModel {
+            vc.tamagotchiImage = tamagotchiModel.tamagotchiImage
+            vc.tamagotchiName = tamagotchiModel.tamagotchiName
+        }
         let mainVc = UINavigationController(rootViewController: vc)
         mainVc.modalPresentationStyle = .fullScreen
         present(mainVc, animated: false)
     }
-    
 }
 
 

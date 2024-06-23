@@ -25,6 +25,8 @@ class MainViewController: UIViewController {
         }
     }
     
+    var tamagotchiModel: TamagotchiModel?
+    
     var eatCount = 0
     var waterCount = 0
     
